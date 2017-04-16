@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion latestBuildTools()
+
+    defaultConfig {
+        applicationId "com.lifeistech.android.litclocklayout"
+        minSdkVersion 15
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:22.2.0'
+}
+
+def getSdkDir() {
+    if (System.env.ANDROID_SDK_ROOT != null)
+        return System.env.ANDROID_SDK_ROOT
+
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    def sdkdir = properties.getProperty('sdk.dir', null)
+    if (sdkdir == null)
+        throw new GradleException("SDK location not found. Define location with sdk.dir in the local.properties file or with an ANDROID_SDK_ROOT environment variable.")
+
+    return sdkdir
+}
+
+def buildToolsList() {
+    new File(getSdkDir(), '/build-tools').list().sort { a, b -> b <=> a }
+}
+
+def latestBuildTools() {
+    String latestTools = buildToolsList()[0]
+    if (latestTools == '23.0.0-preview') {
+        latestTools = buildToolsList()[1]
+    }
+    return latestTools
+}
