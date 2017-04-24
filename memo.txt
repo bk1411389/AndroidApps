@@ -1,0 +1,7 @@
+詰まったところ
+
+【まるばつゲーム】
+・テキスト画像が潰れてることによる[]と{}の見間違い
+・menu_main.xmlがない　→　Android.Manifest.xml
+・menu_mainがない
+・onOptionItemSelected()をどこに書くか書いてない

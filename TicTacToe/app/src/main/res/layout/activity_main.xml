@@ -1,0 +1,112 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical|center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/playerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Player"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton1"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton4"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton5"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton6"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imageButton7"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton8"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+
+            <ImageButton
+                android:id="@+id/imageButton9"
+                android:layout_width="104dp"
+                android:layout_height="104dp"
+                android:onClick="tapMark"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/winnerText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/alpha_gray"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@android:color/background_light"
+        android:textSize="36sp" />
+
+</RelativeLayout>
