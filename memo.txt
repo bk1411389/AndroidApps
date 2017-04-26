@@ -5,3 +5,5 @@
 ・menu_main.xmlがない　→　Android.Manifest.xml
 ・menu_mainがない
 ・onOptionItemSelected()をどこに書くか書いてない
+
+【お絵かき】
