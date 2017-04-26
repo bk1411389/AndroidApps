@@ -40,7 +40,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-
+        if(gameView.player != null){
+            gameView.player.move(-event.values[0]);
+        }
     }
 
     @Override

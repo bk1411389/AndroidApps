@@ -32,6 +32,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
 
     int screenWidth, screenHeight;
 
+    int score = 0, life = 1;
+
     public GameView(Context context){
         super(context);
         getHolder().addCallback(this);
@@ -64,19 +66,38 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
         present = new Present();
         player = new Player();
 
+        Paint textPaint = new Paint();
+        textPaint.setColor(Color.BLACK);
+        textPaint.setFakeBoldText(true);
+        textPaint.setTextSize(100);
+
         while(thread != null){
             Canvas canvas = surfaceHolder.lockCanvas();
             canvas.drawColor(Color.WHITE);
 
             canvas.drawBitmap(playerImage,player.x,player.y,null);
-            
             canvas.drawBitmap(presentImage, present.x, present.y, null);
-            
-            if(present.y > screenHeight){
+
+
+            if(player.isEnter(present)){
                 present.reset();
-            }else {
+                score += 10;
+            }else if(present.y > screenHeight){
+                present.reset();
+                life--;
+            }else{
                 present.update();
             }
+            canvas.drawText("SCORE : "+score, 50, 150, textPaint);
+            canvas.drawText("LIFE : "+life, 50, 300, textPaint);
+
+
+            if(life <= 0){
+                canvas.drawText("Game Over",screenWidth/3,screenHeight/2,textPaint);
+                surfaceHolder.unlockCanvasAndPost(canvas);
+                break;
+            }
+
             surfaceHolder.unlockCanvasAndPost(canvas);
 
             try{
@@ -117,6 +138,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback, Run
         public Player(){
             x=0;
             y=screenHeight - HEIGHT;
+        }
+
+        public void move(float diffX){
+            this.x += diffX;
+            this.x = Math.max(0,x);
+            this.x = Math.min(screenWidth - WIDTH, x);
+        }
+
+        public boolean isEnter(Present present){
+            if(present.x + Present.WIDTH > x && present.x < x + WIDTH &&
+                    present.y + Present.HEIGHT > y && present.y < y+ HEIGHT){
+               return true;
+            }
+            return false;
         }
     }
 
