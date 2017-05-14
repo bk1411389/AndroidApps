@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">KaraokeListingApp</string>
+    <string name="title1">日時</string>
+    <string name="title2">曲名</string>
+    <string name="title3">アーティスト名</string>
+    <string name="title4">得点</string>
+    <string name="title5">キー</string>
+</resources>
