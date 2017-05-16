@@ -5,4 +5,12 @@
     <string name="title3">アーティスト名</string>
     <string name="title4">得点</string>
     <string name="title5">キー</string>
+
+    <string-array name="list">
+        <item>日時</item>
+        <item>曲名</item>
+        <item>アーティスト名</item>
+        <item>得点</item>
+    </string-array>
 </resources>
+
